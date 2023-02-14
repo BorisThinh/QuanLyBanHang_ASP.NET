@@ -1,0 +1,70 @@
+﻿@model QuanLyBanHang.Models.SanPham
+@using QuanLyBanHang.Models
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>CHI TIẾT SẢN PHẨM</h2>
+
+<div>
+    <h4>SanPham</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên sản phẩm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSP)
+        </dd>
+
+        <dt>
+           Đơn vị tính 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Donvitinh)
+        </dd>
+
+        <dt>
+            Đơn giá
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dongia)
+        </dd>
+
+        <dt>
+            Hình sản phẩm
+        </dt>
+
+        <dd>
+            @Html.Image("../../" + Model.HinhSP, Model.HinhSP,"100")
+        </dd>
+
+        <dt>
+            Loại sản phẩm 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiSP.TenLoaiSP)
+        </dd>
+        <dt>
+
+        </dt>
+        <dd>
+            <br />
+            <a class="btn btn-success btn-sm" href="@Url.Action("AddToCart","GioHang", new {MaSP = Model.MaSP })">
+                <span class="glyphicon glyphicon-shopping-cart"></span> Thêm vào giỏ
+            </a>
+            <a class="btn btn-success btn-sm" href="@Url.Action("Index","Home", new {MaSP = Model.MaSP})" >
+                Quay lại
+            </a>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaSP }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
